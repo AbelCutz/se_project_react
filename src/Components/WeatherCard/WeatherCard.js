@@ -1,6 +1,6 @@
-import "../WeatherCard/WeatherCard.css";
+import "./WeatherCard.css";
 import "../App/App";
-import { weatherCondition } from "../../Util/Contants";
+import { weatherCondition } from "../../util/Contants";
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   console.log("Weather card");
