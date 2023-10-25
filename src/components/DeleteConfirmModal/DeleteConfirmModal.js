@@ -13,7 +13,7 @@ const DeleteConfirmModal = ({ onClose, isOpen, onSubmit, selectedCard }) => {
         onClick={(e) => e.stopPropagation()}
       >
         <button
-          className="modal__close"
+          className={"modal__close-btn"}
           type="button"
           onClick={onClose}
         ></button>
