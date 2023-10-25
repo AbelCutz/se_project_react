@@ -12,7 +12,7 @@ const ItemCard = ({ item, onSelectCard }) => {
       />
       <div className="card__caption">
         <p className="card__name">{item.name}</p>
-        <img className="card__like-btn" src={likeBtn}></img>
+        <img className="card__like-btn" src={likeBtn} alt={item.link}></img>
       </div>
     </div>
   );

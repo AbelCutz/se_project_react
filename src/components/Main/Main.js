@@ -1,52 +1,45 @@
 import "./Main.css";
 import ItemCard from "../ItemCard/ItemCard";
 import "../ItemCard/ItemCard.css";
-import { weatherCondition, day } from "../../utils/Contants";
-import { defaultClothingItems } from "../../utils/ClothingItems";
 import WeatherCard from "../WeatherCard/WeatherCard";
-import { useMemo } from "react";
+import { useMemo, useContext } from "react";
+import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherTemp, onSelectCard }) {
+function Main({ weatherTemp, onSelectCard, clothingItems, day, type }) {
+  const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
+  const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
   const weatherType = useMemo(() => {
-    if (weatherTemp >= 86) {
+    if (temp >= 86) {
       return "hot";
-    } else if (weatherTemp >= 66 && weatherTemp <= 85) {
+    } else if (temp >= 66 && temp <= 85) {
       return "warm";
-    } else if (weatherTemp <= 65) {
+    } else if (temp <= 65) {
       return "cold";
     }
   }, [weatherTemp]);
 
-  const weatherCardImage = weatherCondition.find(
-    (option) => option.type == weatherType && option.day === day
-  )?.link;
-
-  const filteredCards = defaultClothingItems.filter((item) => {
-    console.log(item);
-    return item.weather.toLowerCase() === weatherType;
-  });
+  const filteredItems = clothingItems
+    ? clothingItems.filter((item) => {
+        return item.weather === weatherType;
+      })
+    : [];
 
   return (
     <main className="main">
-      <WeatherCard day={day} type="cloudy" weatherTemp={weatherTemp} />
+      <WeatherCard day={day} type={type} weatherTemp={temp} />
       <section className="main__section">
         <div className="main__info">
           <div className="card__section">
             <p className="card__section-title">
-              Today is {weatherTemp} °F / you may want to wear:
+              Today is {temp}° {currentTemperatureUnit} / You may want to wear:
             </p>
           </div>
         </div>
-        <div className="card__items">
-          {filteredCards.map((item) => (
-            <ItemCard
-              key={item._id}
-              item={item}
-              card={filteredCards}
-              onSelectCard={onSelectCard}
-            />
+        <ul className="card__items">
+          {filteredItems.map((item) => (
+            <ItemCard key={item._id} item={item} onSelectCard={onSelectCard} />
           ))}
-        </div>
+        </ul>
       </section>
     </main>
   );

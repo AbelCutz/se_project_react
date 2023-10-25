@@ -15,14 +15,15 @@ export const getForecastWeather = () => {
 };
 
 export const parseWeatherData = (data) => {
-  const main = data.main;
-  const temperature = main && Math.ceil(main.temp);
-  const waether = {
+  const temperature = data.main.temp;
+  const weather = {
     temperature: {
-      f: `${Math.round(temperature)}`,
+      F: Math.round(temperature),
+      C: Math.round(((temperature - 32) * 5) / 9),
     },
   };
-  return waether;
+  console.log(weather);
+  return weather;
 };
 
 export const parseLocationData = (data) => {

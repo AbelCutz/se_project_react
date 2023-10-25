@@ -1,0 +1,16 @@
+.sidebar {
+  display: flex;
+  margin: 40px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+  margin-right: 16px;
+}
+
+.sidebar__name {
+  font-family: "Cabinet Grotesk Medium";
+  font-size: 20px;
+  line-height: 25px;
+}
