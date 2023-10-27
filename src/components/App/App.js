@@ -63,7 +63,7 @@ const App = () => {
   const handleDeleteItem = (selectedItem) => {
     deleteClothingItem(selectedItem._id)
       .then(() => {
-        const updatedClothingItems = clothingItems.filter((item) => {
+        const updatedClothingItems = clothingItems.find((item) => {
           return item._id !== selectedItem._id;
         });
         setClothingItems(updatedClothingItems);

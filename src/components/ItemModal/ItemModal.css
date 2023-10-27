@@ -21,14 +21,17 @@
   align-items: flex-start;
   padding-left: 32px;
   margin-top: 20px;
-  gap: 12px;
   font-family: "Cabinet Grotesk Medium", Arial, sans-serif;
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
 }
 
-.modal__button {
+.modal__button:hover {
+  opacity: 60%;
+}
+
+.modal__deleteButton {
   background: transparent center no-repeat;
   border: none;
   outline: none;
@@ -37,13 +40,8 @@
   height: fit-content;
   width: fit-content;
   padding: 0;
-}
-
-.modal__button:hover {
-  opacity: 60%;
-}
-
-.modal__deleteButton {
+  margin-left: 325px;
+  margin-top: -96px;
   color: #ff4d00;
   font-size: 20px;
 }

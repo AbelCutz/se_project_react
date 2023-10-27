@@ -24,7 +24,7 @@ const addNewClothes = async (item) => {
     headers: headers,
     body: JSON.stringify({
       name: item.name,
-      link: item.link,
+      imageUrl: item.imageUrl,
       weather: item.weather,
     }),
   });

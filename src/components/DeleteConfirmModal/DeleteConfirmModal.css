@@ -12,7 +12,16 @@
   text-align: center;
   margin: 60px auto 50px;
 }
-
+.modal__button {
+  background: transparent center no-repeat;
+  border: none;
+  outline: none;
+  transition: opacity 0.1s;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+}
 .modal__delete {
   color: #ff4d00;
   font-size: 20px;

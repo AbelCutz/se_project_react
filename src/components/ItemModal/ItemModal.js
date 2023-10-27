@@ -13,7 +13,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
           onClick={onClose}
         ></button>
         <img
-          src={selectedCard.link}
+          src={selectedCard.imageUrl}
           alt={selectedCard.name}
           className="modal__previw-image"
         />
@@ -21,10 +21,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
         <div className="modal__caption">
           <span>{selectedCard.name}</span>
           <p>Weather: {selectedCard.weather}</p>
-          <button
-            className={`modal__button modal__deleteButton`}
-            onClick={handleDeleteSubmit}
-          >
+          <button className="modal__deleteButton" onClick={handleDeleteSubmit}>
             Delete items
           </button>
         </div>

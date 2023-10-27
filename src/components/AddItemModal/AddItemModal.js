@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
+import ItemCard from "../ItemCard/ItemCard";
+// import { Link } from "react-router-dom/cjs/react-router-dom.min";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   // declare state for each input field
   const [name, setName] = useState("");
-  const [link, setLink] = useState("");
+  const [imageUrl, setimageUrl] = useState("");
   const [weatherType, setWeatherType] = useState("");
 
   // use a useEffect hook to reset the input field state to empty strings when
@@ -12,7 +14,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 
   useEffect(() => {
     setName("");
-    setLink("");
+    setimageUrl("");
     setWeatherType("");
   }, [isOpen]);
 
@@ -22,7 +24,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   };
 
   const handleLinkChange = (e) => {
-    setLink(e.target.value);
+    setimageUrl(e.target.value);
   };
   const handleWeatherTypeChange = (e) => {
     setWeatherType(e.target.value);
@@ -34,7 +36,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     // call onAddItem with appropriate arguments
     onAddItem({
       name,
-      link,
+      imageUrl,
       weatherType,
     });
   }
@@ -62,14 +64,14 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
         />
       </div>
       <div className="modal__input-group">
-        <label htmlFor="link">Image</label>
+        <label>Image</label>
         <input
           className="modal__input-link"
           type="url"
           placeholder="Image URL"
           name="link"
-          id="link"
-          value={link}
+          id="imageUrl"
+          value={imageUrl}
           minLength={1}
           maxLength={30}
           onChange={handleLinkChange}

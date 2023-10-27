@@ -5,7 +5,7 @@ import WeatherCard from "../WeatherCard/WeatherCard";
 import { useMemo, useContext } from "react";
 import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperatureUnitContext";
 
-function Main({ weatherTemp, onSelectCard, clothingItems, day, type }) {
+function Main({ weatherTemp, onSelectCard, clothingItems }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
   const weatherType = useMemo(() => {
@@ -26,7 +26,7 @@ function Main({ weatherTemp, onSelectCard, clothingItems, day, type }) {
 
   return (
     <main className="main">
-      <WeatherCard day={day} type={type} weatherTemp={temp} />
+      <WeatherCard day={true} type={"sunny"} weatherTemp={temp} />
       <section className="main__section">
         <div className="main__info">
           <div className="card__section">

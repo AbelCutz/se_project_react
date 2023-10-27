@@ -2,7 +2,7 @@ import React from "react";
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 
-const ClothesSection = ({ onselectedCard, clothingItems, onClickModal }) => {
+const ClothesSection = ({ onSelectedCard, clothingItems, onClickModal }) => {
   return (
     <div className="clothes-section">
       <div className="clothes-section__title">
@@ -16,7 +16,7 @@ const ClothesSection = ({ onselectedCard, clothingItems, onClickModal }) => {
           <ItemCard
             key={item._id}
             item={item}
-            onSelectedCard={onselectedCard}
+            onSelectedCard={onSelectedCard}
           />
         ))}
       </ul>

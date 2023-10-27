@@ -9,7 +9,7 @@ const Profile = ({ onSelectedCard, clothingItems, onClickModal }) => {
       <ClothesSection
         onSelectedCard={onSelectedCard}
         clothingItems={clothingItems}
-        onClickModal={onClickModal} // on click modal
+        onClickModal={onClickModal}
       />
     </div>
   );
