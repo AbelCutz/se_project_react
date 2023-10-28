@@ -5,8 +5,11 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   const handleDeleteSubmit = () => onDelete(selectedCard);
 
   return (
-    <div className={`modal`}>
-      <div className="modal__content-image">
+    <div className={`modal `} onClick={onClose}>
+      <div
+        className="modal__content-image"
+        onClick={(e) => e.stopPropagation()}
+      >
         <button
           className={"modal__close-btn"}
           type="button"
@@ -22,7 +25,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
           <span>{selectedCard.name}</span>
           <p>Weather: {selectedCard.weather}</p>
           <button className="modal__deleteButton" onClick={handleDeleteSubmit}>
-            Delete items
+            Delete item
           </button>
         </div>
       </div>

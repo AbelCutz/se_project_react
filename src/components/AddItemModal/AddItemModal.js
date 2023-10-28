@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
-import ItemCard from "../ItemCard/ItemCard";
-// import { Link } from "react-router-dom/cjs/react-router-dom.min";
+import "../ItemModal/ItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
 const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   // declare state for each input field
   const [name, setName] = useState("");
-  const [imageUrl, setimageUrl] = useState("");
+  const [imageUrl, setImageUrl] = useState("");
   const [weatherType, setWeatherType] = useState("");
 
   // use a useEffect hook to reset the input field state to empty strings when
@@ -14,7 +13,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
 
   useEffect(() => {
     setName("");
-    setimageUrl("");
+    setImageUrl("");
     setWeatherType("");
   }, [isOpen]);
 
@@ -24,7 +23,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   };
 
   const handleLinkChange = (e) => {
-    setimageUrl(e.target.value);
+    setImageUrl(e.target.value);
   };
   const handleWeatherTypeChange = (e) => {
     setWeatherType(e.target.value);
@@ -59,7 +58,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           id="name"
           value={name}
           minLength={1}
-          maxLength={30}
+          maxLength={300}
           onChange={handleNameChange}
         />
       </div>
@@ -73,7 +72,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
           id="imageUrl"
           value={imageUrl}
           minLength={1}
-          maxLength={30}
+          maxLength={300}
           onChange={handleLinkChange}
         />
       </div>
