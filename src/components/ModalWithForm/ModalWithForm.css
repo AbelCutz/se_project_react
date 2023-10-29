@@ -90,7 +90,7 @@
   border: none;
   cursor: pointer;
   color: #fff;
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 1);
   transition: opacity 0.2s ease-in;
 }
 .modal__submit-btn:hover {

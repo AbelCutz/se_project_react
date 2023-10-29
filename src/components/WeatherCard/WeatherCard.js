@@ -6,10 +6,9 @@ import { CurrentTemperatureUnitContext } from "../../contexts/CurrentTemperature
 
 const WeatherCard = ({ day, type, weatherTemp = "" }) => {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
-  const weatherConditions = weatherCondition.find((i) => {
-    return i.day === day && i.type === type;
+  const weatherConditions = weatherCondition.find((opition) => {
+    return opition.day === day && opition.type === type;
   });
-  console.log(weatherCondition);
   const weatherConditionURL = weatherConditions ? weatherConditions.url : "";
 
   return (

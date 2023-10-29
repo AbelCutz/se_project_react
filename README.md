@@ -1,70 +1,43 @@
-# Getting Started with Create React App
+# WTWR web application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Project description and functionality
 
-In the project directory, you can run:
+This application is an interactive weather web application designed to provide users with real-time weather information and clothing recommendations. The application empowers users to make infromed decisions about what to wear based on the current weather condition.
 
-### `npm start`
+The application fetches weather data from a reliable Weather API, ensuring accurate and up to date information for users worldwide.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+# Technologies
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- The use of _HTML_ _CSS_ and _Figma_
+- React
+- BEM methodology
+- Weather API
+- The use of Mock sever
 
-### `npm test`
+# Key Features :
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Wather Data: Fetcheed from WeatherAPI.
+   `` javascript const getForecastWeather = () => {
+  const latitude = 40.6782;
+  const longitude = -73.9442;
+  const APIkey = "34b0a79076037b2784efc9404871b282";
+  const weatherApi = fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
+  ).then((res) => {
+    return checkServerResponse(res);
+  });
+  return weatherApi;
+}; ``
+2. Location Iformation: The header displays the user`s current location, providing context and making it easy to see how the weather aligns with currecnt surroundings.
+3. Temperature Units: The users have the flexibility to toggle between Fahrenhit and Celius temperature units, making it conveninted for both local and international users.
+4. User Profile: Users can create personal profiles by adding a profile username and avatar. This feacture adds a personalized touch to the application.
+5. Clothing Recommendation: The application offers clothing suggestion based on the current weather: hot, warm and cold.
+6. Adding Clothing Items: User`s can expand their clothing section by adding new clothing items to the application. Each item can be associted with a specific weather condition.
 
-### `npm run build`
+# Link and Github page
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Please see _GitHub_ link for the full project.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+[URL](https://github.com/AbelCutz/se_project_react.git)

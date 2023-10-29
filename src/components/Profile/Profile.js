@@ -3,7 +3,6 @@ import SideBar from "../SideBar/SideBar";
 import ClothesSection from "../ClothesSection/ClothesSection";
 import "./Profile.css";
 const Profile = ({ onSelectCard, clothingItems, onClickModal }) => {
-  console.log(onSelectCard);
   return (
     <div className="profile">
       <SideBar />
