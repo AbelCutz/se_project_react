@@ -19,17 +19,6 @@ The application fetches weather data from a reliable Weather API, ensuring accur
 # Key Features :
 
 1. Wather Data: Fetcheed from WeatherAPI.
-   `` javascript const getForecastWeather = () => {
-  const latitude = 40.6782;
-  const longitude = -73.9442;
-  const APIkey = "34b0a79076037b2784efc9404871b282";
-  const weatherApi = fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then((res) => {
-    return checkServerResponse(res);
-  });
-  return weatherApi;
-}; ``
 2. Location Iformation: The header displays the user`s current location, providing context and making it easy to see how the weather aligns with currecnt surroundings.
 3. Temperature Units: The users have the flexibility to toggle between Fahrenhit and Celius temperature units, making it conveninted for both local and international users.
 4. User Profile: Users can create personal profiles by adding a profile username and avatar. This feacture adds a personalized touch to the application.
@@ -40,4 +29,4 @@ The application fetches weather data from a reliable Weather API, ensuring accur
 
 Please see _GitHub_ link for the full project.
 
-[URL](https://github.com/AbelCutz/se_project_react.git)
+[URL](https://github.com/AbelCutz/se_project_react)
