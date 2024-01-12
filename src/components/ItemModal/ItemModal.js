@@ -1,8 +1,15 @@
 import "./ItemModal.css";
 import "../ModalWithForm/ModalWithForm.css";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
 const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   const handleDeleteSubmit = () => onDelete(selectedCard);
+  const currentUser = useContext(CurrentUserContext);
+  const isOwn = selectedCard.owner === currentUser._id;
+  const itemDeleteButtonClassName = `modal__close-btn ${
+    isOwn ? "modal__deleteBtn_visible" : "modal__deletBtn_hidden"
+  }`;
 
   return (
     <div className={`modal `} onClick={onClose}>
@@ -24,7 +31,10 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
         <div className="modal__caption">
           <span>{selectedCard.name}</span>
           <p>Weather: {selectedCard.weather}</p>
-          <button className="modal__deleteButton" onClick={handleDeleteSubmit}>
+          <button
+            className={itemDeleteButtonClassName}
+            onClick={handleDeleteSubmit}
+          >
             Delete item
           </button>
         </div>

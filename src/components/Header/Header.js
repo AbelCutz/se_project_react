@@ -1,19 +1,28 @@
 import "./Header.css";
 import "./Navigation.css";
-import avatar from "../../images/avatar.svg";
+// import avatar from "../../images/avatar.svg";
 import Wtwrlogo from "../../images/Wtwrlogo.svg";
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { CurrentUserContext } from "../../contexts/CurrentUserContext";
 
-const Header = ({ temperature, weatherLocation, onCreateModal }) => {
+const Header = ({
+  temperature,
+  weatherLocation,
+  onCreateModal,
+  onSignUp,
+  onLogIn,
+  isloggedIn,
+}) => {
+  const currentUser = useContext(CurrentUserContext);
+  const username = currentUser?.username;
+  const avatar = currentUser?.avatar;
   if (!temperature) return null;
   const currentDate = new Date().toLocaleDateString("default", {
     month: "long",
     day: "numeric",
   });
-
-  const username = "Terrence Tegegne";
-  const isAvatarSet = Boolean(avatar);
 
   return (
     <header className="header">
@@ -29,33 +38,38 @@ const Header = ({ temperature, weatherLocation, onCreateModal }) => {
         <nav className="navigation">
           <ul className="navigation__content">
             <ToggleSwitch />
-            <li>
-              <button className="navigation__button" onClick={onCreateModal}>
-                + Add Clothes
-              </button>
-            </li>
-            <li>
-              <Link to="/profile" className="navigation__link">
-                {username}
+            {isloggedIn ? (
+              <>
+                <button className="navigation__button" onClick={onCreateModal}>
+                  + Add Clothes
+                </button>
+                <Link to="/profile" className="navigation__link">
+                  {username}
+                </Link>
                 {avatar ? (
-                  <span
-                    className={`navigation__user${
-                      isAvatarSet ? "navigation__user_avatar" : ""
-                    }`}
-                  >
-                    <img
-                      className="navigation__user"
-                      src={avatar}
-                      alt="user avatar"
-                    ></img>
-                  </span>
+                  <img
+                    className="navigation__user_avatar"
+                    src={avatar}
+                    alt="user avatar"
+                  />
                 ) : (
-                  <span className="navigation__user navigation__user_type_none">
-                    {username?.toUpperCase().charAt(0) || ""}
-                  </span>
+                  <lil className="navigation__avatar">
+                    <p className="navigation__place-holder">
+                      {username[0].toUpperCase()}
+                    </p>
+                  </lil>
                 )}
-              </Link>
-            </li>
+              </>
+            ) : (
+              <>
+                <button className="navigation__button" onClick={onSignUp}>
+                  Sign up
+                </button>
+                <button className="navigation__button" onClick={onLogIn}>
+                  Log in
+                </button>
+              </>
+            )}
           </ul>
         </nav>
       </div>

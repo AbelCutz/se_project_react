@@ -8,6 +8,8 @@ const ModalWithForm = ({
   isOpen,
   onSubmit,
   name,
+  altOptionBtn,
+  onAltOptionBtn,
 }) => {
   return (
     <div className={`modal modal_type_${name}`}>
@@ -19,6 +21,11 @@ const ModalWithForm = ({
           <button type="submit" className="modal__submit-btn">
             {buttonText}
           </button>
+          {altOptionBtn && (
+            <button className="modal__alt-btn" onClick={onAltOptionBtn}>
+              {altOptionBtn}
+            </button>
+          )}
         </form>
       </div>
     </div>
