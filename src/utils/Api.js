@@ -1,5 +1,4 @@
-const baseUrl =
-  process.env.NODE_ENV === "production" ? "http://localhost:3001" : "";
+const baseUrl = "http://localhost:3001";
 
 const checkServerResponse = (res) => {
   if (res.ok) {
@@ -8,7 +7,7 @@ const checkServerResponse = (res) => {
     return Promise.reject(`Error: ${res.status}`);
   }
 };
-const getClothingItems = () => {
+const getClothingItems = async () => {
   return fetch(`${baseUrl}/items`, {
     method: "GET",
     headers: {
@@ -16,6 +15,7 @@ const getClothingItems = () => {
     },
   }).then(checkServerResponse);
 };
+console.log(getClothingItems);
 const addNewClothes = async (item, token) => {
   const res = await fetch(`${baseUrl}/items`, {
     method: "POST",
