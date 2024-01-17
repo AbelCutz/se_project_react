@@ -2,7 +2,6 @@ import React, { useContext } from "react";
 import "./ClothesSection.css";
 import ItemCard from "../ItemCard/ItemCard";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
-
 const ClothesSection = ({
   onSelectCard,
   clothingItems,
@@ -10,8 +9,10 @@ const ClothesSection = ({
   onCardLike,
   isLoggedIn,
 }) => {
-  const { _id } = useContext(CurrentUserContext);
-  const filterItems = clothingItems.filter((item) => item.owner === _id);
+  const currentUser = useContext(CurrentUserContext);
+  const filterItems = clothingItems.filter(
+    (item) => item.owner === currentUser._id
+  );
 
   return (
     <div className="clothes-section">

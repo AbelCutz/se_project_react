@@ -26,7 +26,7 @@
   box-sizing: border-box;
 }
 .modal__title {
-  max-width: 115px;
+  max-width: 137px;
   font-size: 16px;
   line-height: 20px;
 }
@@ -95,4 +95,19 @@
 }
 .modal__submit-btn:hover {
   opacity: 0.6;
+}
+.modal__alt-btn {
+  background-color: rgba(0, 0, 0, 5);
+  font-family: "Cabinet Grotesk Medium";
+  font-size: 16px;
+  line-height: 20px;
+  background: transparent center no-repeat;
+  border: none;
+  outline: none;
+  transition: opacity 0.2s ease-in;
+  width: fit-content;
+  cursor: pointer;
+}
+.modal__alt-btn:hover {
+  opacity: 100%;
 }

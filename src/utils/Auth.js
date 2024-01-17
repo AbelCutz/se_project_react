@@ -6,7 +6,7 @@ const signUp = async ({ name, avatar, email, password }) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(name, avatar, email, password),
+    body: JSON.stringify({ name, avatar, email, password }),
   });
   return checkServerResponse(res);
 };
@@ -17,7 +17,7 @@ const signin = async ({ email, password }) => {
     headers: {
       "Content-Type": "application/json",
     },
-    body: JSON.stringify(email, password),
+    body: JSON.stringify({ email, password }),
   });
   return checkServerResponse(res);
 };

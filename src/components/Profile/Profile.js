@@ -7,13 +7,16 @@ const Profile = ({
   clothingItems,
   onClickModal,
   onLogOut,
-  onClickEditProfile,
+  onHandleEditProfileModal,
   isLoggedIn,
   onCardLike,
 }) => {
   return (
     <div className="profile">
-      <SideBar onClickEditprofile={onClickEditProfile} onLogOut={onLogOut} />
+      <SideBar
+        onHandleEditProfileModal={onHandleEditProfileModal}
+        onLogOut={onLogOut}
+      />
       <ClothesSection
         onSelectCard={onSelectCard}
         clothingItems={clothingItems}

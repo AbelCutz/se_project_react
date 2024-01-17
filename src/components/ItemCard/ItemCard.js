@@ -2,9 +2,10 @@ import "./ItemCard.css";
 import likeBtn from "../../images/likeBtn.svg";
 import liked from "../../images/liked.svg";
 import { CurrentUserContext } from "../../contexts/CurrentUserContext";
+import { useContext } from "react";
 
 const ItemCard = ({ item, onSelectCard, onCardLike, isLoggedIn }) => {
-  const currentUser = CurrentUserContext();
+  const currentUser = useContext(CurrentUserContext);
   const isLiked = item.likes.some((id) => id === currentUser._id);
   const itemLikeBtnClassName = `item__like ${
     !isLoggedIn && "item__like_hidden"

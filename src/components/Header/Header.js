@@ -11,8 +11,8 @@ const Header = ({
   temperature,
   weatherLocation,
   onCreateModal,
-  onSignUp,
-  onLogIn,
+  onRegisterModal,
+  onLoginModal,
   isloggedIn,
 }) => {
   const currentUser = useContext(CurrentUserContext);
@@ -62,11 +62,14 @@ const Header = ({
               </>
             ) : (
               <>
-                <button className="navigation__button" onClick={onSignUp}>
-                  Sign up
+                <button
+                  className="navigation__button"
+                  onClick={onRegisterModal}
+                >
+                  Sign Up
                 </button>
-                <button className="navigation__button" onClick={onLogIn}>
-                  Log in
+                <button className="navigation__button" onClick={onLoginModal}>
+                  Log In
                 </button>
               </>
             )}

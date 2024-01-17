@@ -26,16 +26,17 @@ const LoginModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
 
   return (
     <ModalWithForm
-      title=" Log in"
+      title="Log in"
       name="Log-in"
       onClose={onClose}
       isOpen={isOpen}
+      buttonText="Log in"
       onSubmit={handleSubmit}
-      altOptionBtn="or Register"
+      altOptionBtn=" or Register"
       onAltaOptionBt={onAltaOptionBtn}
     >
       <div className="modal__input-group">
-        <label className="name">Email*</label>
+        <label className="name">Email</label>
         <input
           className="modal__input-name"
           type="email"
@@ -47,7 +48,7 @@ const LoginModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
         />
       </div>
       <div className="modal__input-group">
-        <label className="name">Password*</label>
+        <label className="name">Password</label>
         <input
           className="modal__input-name"
           type="password"

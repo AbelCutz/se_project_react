@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
-import "./RegisterModal.css";
+import "../ModalWithForm/ModalWithForm.css";
 
 const RegisterModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
   const [email, setEmail] = useState("");
@@ -36,9 +36,10 @@ const RegisterModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
     <ModalWithForm
       title="Sign up"
       name="sign-up"
+      buttonText="Next"
       isOpen={isOpen}
       onClose={onClose}
-      altOptionBtn="or Log in"
+      altOptionBtn=" or Log in"
       onAltaOptionBtn={onAltaOptionBtn}
       onSubmit={handleSubmit}
     >

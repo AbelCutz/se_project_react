@@ -20,12 +20,9 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
 
   const weatherType = getWeatherType();
 
-  const filteredItems = clothingItems;
-  console.log("Type of clothingItems:", typeof clothingItems)
-    ? clothingItems.filter((item) => {
-        return item.weather === weatherType;
-      })
-    : [];
+  const filteredItems = clothingItems.filter((item) => {
+    return item.weather === weatherType;
+  });
 
   return (
     <main className="main">
