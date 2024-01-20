@@ -7,7 +7,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
   const handleDeleteSubmit = () => onDelete(selectedCard);
   const currentUser = useContext(CurrentUserContext);
   const isOwn = selectedCard.owner === currentUser._id;
-  const itemDeleteButtonClassName = `modal__close-btn ${
+  const itemDeleteButtonClassName = `${
     isOwn ? "modal__deleteBtn_visible" : "modal__deletBtn_hidden"
   }`;
 
@@ -25,7 +25,7 @@ const ItemModal = ({ selectedCard, onClose, onDelete }) => {
         <img
           src={selectedCard.imageUrl}
           alt={selectedCard.name}
-          className="modal__previw-image"
+          className="modal__preview-image"
         />
 
         <div className="modal__caption">

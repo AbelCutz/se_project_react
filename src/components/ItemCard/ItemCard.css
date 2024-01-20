@@ -19,6 +19,7 @@
   flex-direction: row;
   top: 15px;
   left: 50%;
+  gap: 10px;
   transform: translateX(-50%);
 }
 .card__name {
@@ -45,4 +46,19 @@
 
 .card__like-btn:hover {
   opacity: 60%;
+}
+.modal__deleteBtn_visible {
+  font-size: 20px;
+  line-height: 24px;
+  background: transparent center no-repeat;
+  border: none;
+  outline: none;
+  transition: opacity 0.1s;
+  cursor: pointer;
+  height: fit-content;
+  width: fit-content;
+  padding: 0;
+  color: rgba(255, 77, 0, 1);
+  margin-left: 260px;
+  margin-top: -93px;
 }

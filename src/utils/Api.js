@@ -15,65 +15,64 @@ const getClothingItems = async () => {
     },
   }).then(checkServerResponse);
 };
-console.log(getClothingItems);
-const addNewClothes = async (item, token) => {
-  const res = await fetch(`${baseUrl}/items`, {
+const addNewClothes = ({ name, imageUrl, weather }) => {
+  return fetch(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
     body: JSON.stringify({
-      name: item.name,
-      imageUrl: item.imageUrl,
-      weather: item.weather,
+      name,
+      imageUrl,
+      weather,
     }),
-  });
-  return checkServerResponse(res);
+  }).then(checkServerResponse);
 };
 
-const deleteClothingItem = async (itemId, token) => {
-  const res = await fetch(`${baseUrl}/items/${itemId}`, {
+const deleteClothingItem = (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  });
-  return checkServerResponse(res);
+  }).then(checkServerResponse);
 };
 
-const addLikeItem = async (itemId, token) => {
-  const res = await fetch(`${baseUrl}/items/${itemId}/likes`, {
+const addLikeItem = (itemId, isLiked, setIsliked) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  });
-  return checkServerResponse(res);
+  })
+    .then(checkServerResponse)
+    .then((data) => {
+      setIsliked(!isLiked);
+      return data;
+    });
 };
 
-const removeLikedItem = async (itemId, token) => {
-  const res = await fetch(`${baseUrl}/items/${itemId}/likes`, {
+const removeLikedItem = async (itemId) => {
+  return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  });
-  return checkServerResponse(res);
+  }).then(checkServerResponse);
 };
-const updateUserProfile = async (name, avatar, token) => {
-  const res = await fetch(`${baseUrl}/users/me`, {
+const updateUserProfile = ({ name, avatar }) => {
+  return fetch(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
-      authorization: `Bearer ${token}`,
+      authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
     body: JSON.stringify({ name, avatar }),
-  });
-  return checkServerResponse(res);
+  }).then(checkServerResponse);
 };
 export {
   checkServerResponse,

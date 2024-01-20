@@ -6,7 +6,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   // declare state for each input field
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
-  const [weatherType, setWeatherType] = useState("");
+  const [weather, setWeather] = useState("");
 
   // use a useEffect hook to reset the input field state to empty strings when
   // the modal is opened
@@ -14,7 +14,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
   useEffect(() => {
     setName("");
     setImageUrl("");
-    setWeatherType("");
+    setWeather("");
   }, [isOpen]);
 
   // create onChange handlers corresponding to each state variable
@@ -26,7 +26,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     setImageUrl(e.target.value);
   };
   const handleWeatherTypeChange = (e) => {
-    setWeatherType(e.target.value);
+    setWeather(e.target.value);
   };
 
   function handleSubmit(e) {
@@ -36,7 +36,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     onAddItem({
       name,
       imageUrl,
-      weatherType,
+      weather,
     });
   }
 
@@ -89,7 +89,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
               id="hot"
               value="hot"
               name="weatherType"
-              checked={weatherType === "hot"}
+              checked={weather === "hot"}
               onChange={handleWeatherTypeChange}
             />
             Hot
@@ -101,7 +101,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
               id="warm"
               value="warm"
               name="weatherType"
-              checked={weatherType === "warm"}
+              checked={weather === "warm"}
               onChange={handleWeatherTypeChange}
             />
             Warm
@@ -113,7 +113,7 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
               id="cold"
               value="cold"
               name="weatherType"
-              checked={weatherType === "cold"}
+              checked={weather === "cold"}
               onChange={handleWeatherTypeChange}
             />
             Cold
