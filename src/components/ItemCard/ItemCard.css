@@ -35,7 +35,7 @@
   color: rgba(0, 0, 0, 0.6);
 }
 
-.card__like-btn {
+.item__like {
   width: 18px;
   height: 15px;
   align-self: center;
@@ -44,7 +44,7 @@
   transition: opacity linear 0.1s 0.2s;
 }
 
-.card__like-btn:hover {
+.item__like:hover {
   opacity: 60%;
 }
 .modal__deleteBtn_visible {

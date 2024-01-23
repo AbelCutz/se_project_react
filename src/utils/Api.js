@@ -40,22 +40,17 @@ const deleteClothingItem = (itemId) => {
   }).then(checkServerResponse);
 };
 
-const addLikeItem = (itemId, isLiked, setIsliked) => {
+const addLikeItem = (itemId) => {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  })
-    .then(checkServerResponse)
-    .then((data) => {
-      setIsliked(!isLiked);
-      return data;
-    });
+  }).then(checkServerResponse);
 };
 
-const removeLikedItem = async (itemId) => {
+const removeLikedItem = (itemId) => {
   return fetch(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {

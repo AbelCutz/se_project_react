@@ -77,8 +77,8 @@ const App = () => {
   // --------------------------- handle add and delete --------------------------------------------------
   const handleAddItem = (item) => {
     addNewClothes(item)
-      .then((item) => {
-        setClothingItems([item, ...clothingItems]);
+      .then((addedItem) => {
+        setClothingItems([addedItem.data, ...clothingItems]);
       })
       .then(() => {
         handleCloseModal();
@@ -111,7 +111,7 @@ const App = () => {
   const handleSubmitEditProfile = ({ name, avatar }) => {
     updateUserProfile({ name, avatar })
       .then((updated) => {
-        setCurrentUser(updated.user);
+        setCurrentUser(updated);
         handleCloseModal();
       })
       .catch((error) => console.log(error));
@@ -147,18 +147,20 @@ const App = () => {
 
   // --------------------------- add and remove likes ----------------------------------------------------
   const handleLikeItems = ({ _id, isLiked }) => {
+    debugger;
     const token = localStorage.getItem("jwt");
     !isLiked
-      ? addLikeItem(_id, token)
+      ? addLikeItem(_id, isLiked, token)
           .then((updatedItems) => {
+            console.log(updatedItems);
             setClothingItems((items) => {
-              return items.map((c) => (c._id === _id ? updatedItems : c));
+              return items.map((c) => (c.owner === _id ? updatedItems : c));
             });
           })
           .catch(console.error)
       : removeLikedItem(_id, token).then((updatedItems) => {
           setClothingItems((items) => {
-            return items.map((c) => (c._id === _id ? updatedItems : c));
+            return items.map((c) => (c.owner === _id ? updatedItems : c));
           });
         });
   };
@@ -169,8 +171,13 @@ const App = () => {
     if (jwt) {
       checkToken(jwt)
         .then((res) => {
-          setCurrentUser(res);
-          setIsLoggedIn(true);
+          if (res) {
+            setCurrentUser(res);
+            setIsLoggedIn(true);
+          }
+          if (!res.avatar) {
+            setNamePlaceHolder(Array.from(res.name)[0]);
+          }
         })
         .then(() => {
           history.push("/");
@@ -217,7 +224,7 @@ const App = () => {
                 weatherTemp={temperature}
                 onSelectCard={handleSelectedCard}
                 clothingItems={clothingItems}
-                onCardlike={handleLikeItems}
+                onCardLike={handleLikeItems}
                 isLoggedIn={isLoggedIn}
               />
             </Route>

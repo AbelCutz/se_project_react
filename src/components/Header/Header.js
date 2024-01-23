@@ -13,12 +13,12 @@ const Header = ({
   onCreateModal,
   onRegisterModal,
   onLoginModal,
-  isloggedIn,
+  namePlaceHolder,
+  isLoggedIn,
 }) => {
   const currentUser = useContext(CurrentUserContext);
-  const username = currentUser?.username;
-  const avatar = currentUser?.avatar;
   if (!temperature) return null;
+
   const currentDate = new Date().toLocaleDateString("default", {
     month: "long",
     day: "numeric",
@@ -38,24 +38,24 @@ const Header = ({
         <nav className="navigation">
           <ul className="navigation__content">
             <ToggleSwitch />
-            {isloggedIn ? (
+            {isLoggedIn ? (
               <>
                 <button className="navigation__button" onClick={onCreateModal}>
                   + Add Clothes
                 </button>
                 <Link to="/profile" className="navigation__link">
-                  {username}
+                  {`${currentUser.name}`}
                 </Link>
-                {avatar ? (
+                {currentUser.avatar ? (
                   <img
                     className="navigation__user_avatar"
-                    src={avatar}
+                    src={currentUser.avatar}
                     alt="user avatar"
                   />
                 ) : (
                   <lil className="navigation__avatar">
                     <p className="navigation__place-holder">
-                      {username[0].toUpperCase()}
+                      {namePlaceHolder}
                     </p>
                   </lil>
                 )}

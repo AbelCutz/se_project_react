@@ -39,7 +39,6 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
       weather,
     });
   }
-
   return (
     <ModalWithForm
       title="New Garment"
