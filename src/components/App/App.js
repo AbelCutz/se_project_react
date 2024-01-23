@@ -147,20 +147,19 @@ const App = () => {
 
   // --------------------------- add and remove likes ----------------------------------------------------
   const handleLikeItems = ({ _id, isLiked }) => {
-    debugger;
     const token = localStorage.getItem("jwt");
     !isLiked
       ? addLikeItem(_id, isLiked, token)
           .then((updatedItems) => {
             console.log(updatedItems);
             setClothingItems((items) => {
-              return items.map((c) => (c.owner === _id ? updatedItems : c));
+              return items.map((c) => (c._id === _id ? updatedItems.data : c));
             });
           })
           .catch(console.error)
       : removeLikedItem(_id, token).then((updatedItems) => {
           setClothingItems((items) => {
-            return items.map((c) => (c.owner === _id ? updatedItems : c));
+            return items.map((c) => (c._id === _id ? updatedItems.data : c));
           });
         });
   };

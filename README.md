@@ -29,4 +29,5 @@ The application fetches weather data from a reliable Weather API, ensuring accur
 
 Please see _GitHub_ link for the full project.
 
-[URL](https://github.com/AbelCutz/se_project_react)
+[front-end](https://github.com/AbelCutz/se_project_react)
+[Back-end] (https://github.com/AbelCutz/se_project_express)

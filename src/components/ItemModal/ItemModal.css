@@ -44,3 +44,7 @@
   color: #ff4d00;
   font-size: 20px;
 }
+
+.modal__deletBtn_hidden {
+  visibility: hidden;
+}
