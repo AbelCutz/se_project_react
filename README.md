@@ -31,4 +31,4 @@ Please see _GitHub_ link for the full project.
 
 - [front-end](https://github.com/AbelCutz/se_project_react)
 
-- [back-end] (https://github.com/AbelCutz/se_project_express)
+- [back-end](https://github.com/AbelCutz/se_project_express)
