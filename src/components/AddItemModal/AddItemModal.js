@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import "../ItemModal/ItemModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
+const AddItemModal = ({ isOpen, onAddItem, onClose, isLoading }) => {
   // declare state for each input field
   const [name, setName] = useState("");
   const [imageUrl, setImageUrl] = useState("");
@@ -43,38 +43,42 @@ const AddItemModal = ({ isOpen, onAddItem, onClose }) => {
     <ModalWithForm
       title="New Garment"
       name="add-garment"
-      buttonText="Add garment"
+      buttonText={isLoading ? "Saving..." : "Add garment"}
       onClose={onClose}
       isOpen={isOpen}
       onSubmit={handleSubmit}
     >
       <div className="modal__input-group">
-        <label htmlFor="name">Name</label>
-        <input
-          className="modal__input-name"
-          type="text"
-          placeholder="Name"
-          name="name"
-          id="name"
-          value={name}
-          minLength={1}
-          maxLength={300}
-          onChange={handleNameChange}
-        />
+        <label htmlFor="name">
+          Name
+          <input
+            className="modal__input-name"
+            type="text"
+            placeholder="Name"
+            name="name"
+            id="name"
+            value={name}
+            minLength={1}
+            maxLength={300}
+            onChange={handleNameChange}
+          />
+        </label>
       </div>
       <div className="modal__input-group">
-        <label>Image</label>
-        <input
-          className="modal__input-link"
-          type="url"
-          placeholder="Image URL"
-          name="link"
-          id="imageUrl"
-          value={imageUrl}
-          minLength={1}
-          maxLength={300}
-          onChange={handleLinkChange}
-        />
+        <label>
+          Image
+          <input
+            className="modal__input-link"
+            type="url"
+            placeholder="Image URL"
+            name="link"
+            id="imageUrl"
+            value={imageUrl}
+            minLength={1}
+            maxLength={300}
+            onChange={handleLinkChange}
+          />
+        </label>
       </div>
       <div className="modal__input-group">
         <p>

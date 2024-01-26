@@ -1,7 +1,13 @@
 import React from "react";
 import "./DeleteConfirmModal.css";
 
-const DeleteConfirmModal = ({ onClose, isOpen, onSubmit, selectedCard }) => {
+const DeleteConfirmModal = ({
+  onClose,
+  isOpen,
+  onSubmit,
+  selectedCard,
+  isLoading,
+}) => {
   const handleDeleteItem = () => {
     onSubmit(selectedCard);
   };
@@ -27,7 +33,7 @@ const DeleteConfirmModal = ({ onClose, isOpen, onSubmit, selectedCard }) => {
             type="button"
             onClick={handleDeleteItem}
           >
-            Yes, delete item
+            {isLoading ? "Deleting..." : "Yes, delete item"}
           </button>
           <button
             className="modal__button modal__cancel"

@@ -53,11 +53,11 @@ const Header = ({
                     alt="user avatar"
                   />
                 ) : (
-                  <lil className="navigation__avatar">
+                  <span className="navigation__avatar">
                     <p className="navigation__place-holder">
                       {namePlaceHolder}
                     </p>
-                  </lil>
+                  </span>
                 )}
               </>
             ) : (

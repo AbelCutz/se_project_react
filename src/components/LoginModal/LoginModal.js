@@ -2,7 +2,13 @@ import React, { useState, useEffect } from "react";
 import "./LoginModal.css";
 import ModalWithForm from "../ModalWithForm/ModalWithForm";
 
-const LoginModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
+const LoginModal = ({
+  isOpen,
+  onClose,
+  onSubmit,
+  onAltOptionBtn,
+  isLoading,
+}) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
@@ -23,41 +29,44 @@ const LoginModal = ({ isOpen, onClose, onSubmit, onAltaOptionBtn }) => {
     e.preventDefault();
     onSubmit({ email, password });
   };
-
   return (
     <ModalWithForm
       title="Log in"
       name="Log-in"
       onClose={onClose}
       isOpen={isOpen}
-      buttonText="Log in"
+      buttonText={isLoading ? "Logging in..." : "Log in"}
       onSubmit={handleSubmit}
       altOptionBtn=" or Register"
-      onAltaOptionBt={onAltaOptionBtn}
+      onAltOptionBtn={onAltOptionBtn}
     >
       <div className="modal__input-group">
-        <label className="name">Email</label>
-        <input
-          className="modal__input-name"
-          type="email"
-          id="email"
-          value={email}
-          onChange={handleEmailChange}
-          placeholder="Email"
-          required
-        />
+        <label className="name">
+          Email
+          <input
+            className="modal__input-name"
+            type="email"
+            id="email"
+            value={email}
+            onChange={handleEmailChange}
+            placeholder="Email"
+            required
+          />
+        </label>
       </div>
       <div className="modal__input-group">
-        <label className="name">Password</label>
-        <input
-          className="modal__input-name"
-          type="password"
-          id="password"
-          value={password}
-          onChange={handlePasswordChange}
-          placeholder="Password"
-          required
-        />
+        <label className="name">
+          Password
+          <input
+            className="modal__input-name"
+            type="password"
+            id="password"
+            value={password}
+            onChange={handlePasswordChange}
+            placeholder="Password"
+            required
+          />
+        </label>
       </div>
     </ModalWithForm>
   );

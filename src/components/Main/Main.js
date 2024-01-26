@@ -9,24 +9,34 @@ function Main({ weatherTemp, onSelectCard, clothingItems, onCardLike }) {
   const { currentTemperatureUnit } = useContext(CurrentTemperatureUnitContext);
   const temp = weatherTemp?.temperature?.[currentTemperatureUnit] || 999;
   const getWeatherType = () => {
-    if (temp >= 86) {
-      return "hot";
-    } else if (temp >= 66 && temp <= 85) {
-      return "warm";
-    } else if (temp <= 65) {
-      return "cold";
+    if (currentTemperatureUnit === "F") {
+      if (temp >= 86) {
+        return "hot";
+      } else if (temp >= 66 && temp <= 85) {
+        return "warm";
+      } else if (temp <= 65) {
+        return "cold";
+      }
+    } else if (currentTemperatureUnit === "C") {
+      if (temp >= 30) {
+        return "hot";
+      } else if (temp >= 19 && temp <= 29) {
+        return "warm";
+      } else if (temp <= 18) {
+        return "cold";
+      }
     }
+    return "unknown";
   };
 
   const weatherType = getWeatherType();
-
   const filteredItems = clothingItems.filter((item) => {
     return item.weather === weatherType;
   });
 
   return (
     <main className="main">
-      <WeatherCard day={true} type={"sunny"} weatherTemp={temp} />
+      <WeatherCard day={true} type={weatherType} weatherTemp={temp} />
       <section className="main__section">
         <div className="main__info">
           <div className="card__section">

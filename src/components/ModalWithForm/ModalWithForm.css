@@ -91,10 +91,10 @@
   cursor: pointer;
   color: #fff;
   background-color: rgba(0, 0, 0, 1);
-  transition: opacity 0.2s ease-in;
+  transition: opacity linear 0.1s 0.1s;
 }
 .modal__submit-btn:hover {
-  opacity: 0.6;
+  opacity: 60%;
 }
 .modal__alt-btn {
   background-color: rgba(0, 0, 0, 5);

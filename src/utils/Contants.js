@@ -19,13 +19,13 @@ export { location };
 
 export const weatherCondition = [
   { url: daySunny, day: true, type: "sunny" },
-  { url: dayCloudy, day: true, type: "cloudy" },
+  { url: dayCloudy, day: true, type: "cold" },
   { url: dayRain, day: true, type: "rain" },
   { url: dayStorm, day: true, type: "storm" },
   { url: daySnow, day: true, type: "snow" },
   { url: dayFog, day: true, type: "fog" },
   { url: nightSunny, day: false, type: "sunny" },
-  { url: nightCloudy, day: false, type: "cloudy" },
+  { url: nightCloudy, day: false, type: "cold" },
   { url: nightRain, day: false, type: "rain" },
   { url: nightStorm, day: false, type: "storm" },
   { url: nightSnow, day: false, type: "snow" },

@@ -7,16 +7,21 @@ const checkServerResponse = (res) => {
     return Promise.reject(`Error: ${res.status}`);
   }
 };
+
+const request = (url, options) => {
+  return fetch(url, options).then(checkServerResponse);
+};
+
 const getClothingItems = async () => {
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "GET",
     headers: {
       "Content-Type": "application/json",
     },
-  }).then(checkServerResponse);
+  });
 };
 const addNewClothes = ({ name, imageUrl, weather }) => {
-  return fetch(`${baseUrl}/items`, {
+  return request(`${baseUrl}/items`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -27,47 +32,47 @@ const addNewClothes = ({ name, imageUrl, weather }) => {
       imageUrl,
       weather,
     }),
-  }).then(checkServerResponse);
+  });
 };
 
 const deleteClothingItem = (itemId) => {
-  return fetch(`${baseUrl}/items/${itemId}`, {
+  return request(`${baseUrl}/items/${itemId}`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  }).then(checkServerResponse);
+  });
 };
 
 const addLikeItem = (itemId) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  }).then(checkServerResponse);
+  });
 };
 
 const removeLikedItem = (itemId) => {
-  return fetch(`${baseUrl}/items/${itemId}/likes`, {
+  return request(`${baseUrl}/items/${itemId}/likes`, {
     method: "DELETE",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
-  }).then(checkServerResponse);
+  });
 };
 const updateUserProfile = ({ name, avatar }) => {
-  return fetch(`${baseUrl}/users/me`, {
+  return request(`${baseUrl}/users/me`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
       authorization: `Bearer ${localStorage.getItem("jwt")}`,
     },
     body: JSON.stringify({ name, avatar }),
-  }).then(checkServerResponse);
+  });
 };
 export {
   checkServerResponse,
