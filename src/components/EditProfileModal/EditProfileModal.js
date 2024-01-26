@@ -19,11 +19,11 @@ const EditProfileModal = ({
     setAvatar(e.target.value);
   };
   useEffect(() => {
-    if (isOpen && currentUser) {
+    if (currentUser) {
       setName(currentUser.name || "");
       setAvatar(currentUser.avatar || "");
     }
-  }, [currentUser, isOpen]);
+  }, [currentUser]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
