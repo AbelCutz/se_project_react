@@ -153,7 +153,6 @@ const App = () => {
     !isLiked
       ? addLikeItem(_id, isLiked, token)
           .then((updatedItems) => {
-            console.log(updatedItems);
             setClothingItems((items) => {
               return items.map((c) => (c._id === _id ? updatedItems.data : c));
             });

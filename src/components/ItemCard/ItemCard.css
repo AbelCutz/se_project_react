@@ -47,9 +47,9 @@
 .item__like:hover {
   opacity: 60%;
 }
-.item__like_hidden {
+/* .item__like_hidden {
   visibility: hidden;
-}
+} */
 .modal__deleteBtn_visible {
   font-size: 20px;
   line-height: 24px;

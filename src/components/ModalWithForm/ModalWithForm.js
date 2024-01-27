@@ -22,7 +22,11 @@ const ModalWithForm = ({
             {buttonText}
           </button>
           {altOptionBtn && (
-            <button className="modal__alt-btn" onClick={onAltOptionBtn}>
+            <button
+              type="button"
+              className="modal__alt-btn"
+              onClick={onAltOptionBtn}
+            >
               {altOptionBtn}
             </button>
           )}
