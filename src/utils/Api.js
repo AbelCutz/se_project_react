@@ -1,6 +1,6 @@
 const baseUrl =
   process.env.NODE_ENV === "production"
-    ? "api.explorerwtwr.crabdance.com"
+    ? "https://api.explorerwtwr.crabdance.com"
     : "http://localhost:3001";
 
 const checkServerResponse = (res) => {
